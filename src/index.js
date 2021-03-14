@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CallbackHook from './components/06-Memo/CallBackHook';
+// import CallbackHook from './components/06-Memo/CallBackHook';
+import { Padre } from './components/07-tarea-memo/Padre';
 // import CounterApp from './components/01-useState/CounterApp';
 // import CounterCustomHook from './components/01-useState/CounterCustomHook';
 // import FormWithCustomHook from './components/02-useEffect/FormWithCustomHooks';
@@ -13,7 +14,7 @@ import CallbackHook from './components/06-Memo/CallBackHook';
 // import SimpleForm from './components/01-useState/useEffect/SimpleForm';
 // import HookApp from './HookApp';
 ReactDOM.render(
-    <CallbackHook />,
+    <Padre />,
   document.getElementById('root')
 );
 
