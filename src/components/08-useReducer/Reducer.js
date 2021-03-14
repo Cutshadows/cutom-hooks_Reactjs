@@ -8,7 +8,9 @@ const Reducer = () => {
     }];
     const todoReducer=(state=initialState, action)=>{
         switch(action){
-            
+            case 'add':
+                [...state, action.payload]    
+            break;
             default:return state
         }
     };
