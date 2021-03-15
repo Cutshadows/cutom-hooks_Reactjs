@@ -3,6 +3,8 @@ import {todoReducer} from './todoReducer';
 import { useForm } from '../../hooks/useForm';
 
 import './styles.scss';
+import Listado from './Listado';
+import Formulario from './Formulario';
 
 const init=()=>{
     // return localStorage.getItem('todos')?JSON.parse(localStorage.getItem('todos')):[];
@@ -43,8 +45,20 @@ const TodoApp = () => {
         }
         dispatch(action);
         reset();
-
-
+    }
+    
+    const handleDelete=(todoId)=>{
+        const action={
+            type:'delete',
+            payload:todoId
+        };
+        dispatch(action);
+    }
+    const handleToggle=(todoId)=>{
+        dispatch({
+            type:'toggle',
+            payload:todoId
+        });
     }
     return ( 
         <div>
@@ -52,39 +66,40 @@ const TodoApp = () => {
             <hr/>
             <div className="row">
                 <div className="col-7">
-                    <ul className="list-group list-group-flush">
+                    {/* inicio de un componente listado */}
+                    <Listado 
+                    todos={todos} 
+                    handleToggle={handleToggle} 
+                    handleDelete={handleDelete}/>
+                    {/* <ul className="list-group list-group-flush">
                         {
                             todos.map((todo, indice)=>(
                                 <li
                                 key={todo.id}
                                 className="list-group-item"
                                 >
-                                    <p className="text-center">{indice+1}-{todo.desc}</p>
+                                    <p 
+                                    className={`${todo.done && 'complete'}`}
+                                    onClick={()=>handleToggle(todo.id)}
+                                    >{indice+1}-{todo.desc}</p>
                                     <button
+                                    onClick={()=>handleDelete(todo.id)}
                                     className="btn btn-danger"
                                     >Borrar</button>
                                 </li>
                             ))
                         
                         }
-                    </ul>
+                    </ul>    */}
                 </div>
                 <div className="col-5">
                     <h4>Agregar Todo</h4>
                     <hr/>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text"
-                            name="description"
-                            value={description}
-                            onChange={handleInputChange}
-                            className="form-control"
-                            placeholder="Aprender..."
-                            autoComplete="off"/>
-                        <button
-                        type="submit"
-                        className="btn btn-outline-success mt-1 w-100">Agregar</button>
 
-                    </form>
+                    <Formulario 
+                    handleSubmit={handleSubmit} 
+                    handleInputChange={handleInputChange}
+                    description={description}/>
 
                 </div>
             </div>
