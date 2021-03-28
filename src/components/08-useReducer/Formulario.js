@@ -1,7 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types'; 
+import { useForm } from '../../hooks/useForm';
 
-const Formulario = ({handleSubmit, handleInputChange, description}) => {
+const Formulario = ({handleAddTodo}) => {
+    const [{description}, handleInputChange, reset]=useForm({
+        description:''
+    });
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        if(description.trim().length<= 1){
+            return;
+        }
+        const newTodo={
+            id: new Date().getTime(),
+            desc:description,
+            done: false
+        };
+        handleAddTodo(newTodo);
+        reset();
+    }
     return ( 
         <form onSubmit={handleSubmit}>
             <input type="text"
@@ -19,9 +37,7 @@ const Formulario = ({handleSubmit, handleInputChange, description}) => {
      );
 }
 Formulario.protoTypes={
-    description:PropTypes.string,
-    handleSubmit:PropTypes.func,
-    handleInputChange:PropTypes.func
+    handleAddTodo:PropTypes.func,
 }
  
 export default Formulario;

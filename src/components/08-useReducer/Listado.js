@@ -8,7 +8,8 @@ const Listado = ({todos, handleToggle, handleDelete}) => {
         <ul className="list-group list-group-flush">
             {
                 todos.map((todo, indice)=>(
-                    <TodoListItem 
+                    <TodoListItem
+                    key={todo.id} 
                     handleToggle={handleToggle}
                     handleDelete={handleDelete}
                     todo={todo} 
