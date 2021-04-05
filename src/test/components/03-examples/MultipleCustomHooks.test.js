@@ -41,7 +41,7 @@ describe('Pruebas de <MultipleCustomHooks></MultipleCustomHooks>', () => {
         expect(wrapper.find('.mb-0').text().trim()).toBe('Hola Douglas');
         expect(wrapper.find('.blockquote-footer').text().trim()).toBe('Fernando');
         expect(wrapper.find('footer').text().trim()).toBe('Fernando');
-        console.log(wrapper.html())
+        // console.log(wrapper.html())
 
     })
     

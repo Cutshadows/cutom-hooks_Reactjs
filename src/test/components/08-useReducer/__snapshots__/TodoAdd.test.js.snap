@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas sobre <TodoAdd></TodoAdd> deberia de cargar el wrapper  1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    autoComplete="off"
+    className="form-control"
+    name="description"
+    onChange={[Function]}
+    placeholder="Aprender..."
+    type="text"
+    value=""
+  />
+  <button
+    className="btn btn-outline-success mt-1 w-100"
+    type="submit"
+  >
+    Agregar
+  </button>
+</form>
+`;
