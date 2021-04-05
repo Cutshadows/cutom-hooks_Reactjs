@@ -14,9 +14,9 @@ import MainApp from './components/09-useContext/MainApp';
 // import Memorize from './components/06-Memo/Memorize';
 // import MemoHook from './components/06-Memo/MemoHooks';
 // import SimpleForm from './components/01-useState/useEffect/SimpleForm';
-// import HookApp from './HookApp';
+import HookApp from './HookApp';
 ReactDOM.render(
-    <MainApp/>,
+    <HookApp/>,
   document.getElementById('root')
 );
 

@@ -16,10 +16,15 @@ const useFetch = (url) => {
     }, [])
 
     useEffect(() => {
+        setState({
+            data:null,
+            loading:true,
+            error:null
+        })
         fetch(url)
             .then(resp=>resp.json())
             .then(data=>{
-                    setTimeout(()=>{
+                    // setTimeout(()=>{
                         if(isMounted.current){
                                 setState({
                                     loading:false,
@@ -27,7 +32,13 @@ const useFetch = (url) => {
                                     data
                                 })
                         }
-                    }, 3000)
+                    // }, 3000)
+            }).catch(()=>{
+                setState({
+                    data:null,
+                    loading:false,
+                    error:'No se pudo cargar la información'
+                })  
             })
     }, [url])
 
